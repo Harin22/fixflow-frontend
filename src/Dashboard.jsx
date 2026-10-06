@@ -4,7 +4,7 @@ import "./index.css";
 
 import fixflowLogo from "./assets/fix_flow_logo.png";
 
-const API_URL = "http://127.0.0.1:5000";
+const API_URL = "https://fixflow-backend-iwdg.onrender.com";
 
 function Dashboard() {
 
