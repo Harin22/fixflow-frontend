@@ -7,20 +7,28 @@ function Signup() {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
 
+  const API_URL =
+    window.location.hostname === "127.0.0.1"
+      ? "http://127.0.0.1:5000"
+      : "https://fixflow-backend-iwdg.onrender.com";
+
   const handleSignup = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://127.0.0.1:5000/api/auth/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
-      });
+      const response = await fetch(
+        `${API_URL}/api/auth/register`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email,
+            password,
+          }),
+        }
+      );
 
       const data = await response.json();
 

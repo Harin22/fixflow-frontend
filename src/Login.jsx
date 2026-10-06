@@ -7,12 +7,17 @@ function Login() {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
 
+  const API_URL =
+    window.location.hostname === "127.0.0.1"
+      ? "http://127.0.0.1:5000"
+      : "https://fixflow-backend-iwdg.onrender.com";
+
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:5000/api/auth/login",
+        `${API_URL}/api/auth/login`,
         {
           method: "POST",
           headers: {
